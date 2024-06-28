@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# muito útil para direcionar o usuário paraas páginas corretamente
+# basicamente, se o usuario escrever na URL ".com/Project" ele irá
+# direcionar para a route Projects. Se nao fosse pelo htaccess, ele teria
+# que direcionar para "/index.php?page=Project". Deixando o codigo mais amigavel
+
+# é importante ressaltar que, caso ele escreva algo não tem, sla, "Projetos2",
+# o htaccess irá direcionar automaticamente para o arquivo index.php
